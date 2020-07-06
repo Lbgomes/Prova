@@ -10,7 +10,7 @@ namespace ProjetoEntrevista.Repositories
     public class UsuarioPfRepository
     {
 
-        private string StringConexao = "Data Source=localhost; initial catalog=Projeto;Integrated Security=true";
+        private string StringConexao = "Data Source=DESKTOP-CQTIV89\\SQLEXPRESS; initial catalog=Projeto; user id=sa; pwd=sa@132;";
 
         // declaracao do metodo que preciso criar
         public List<UsuarioPFDomains> Listar()
