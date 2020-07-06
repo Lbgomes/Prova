@@ -11,45 +11,45 @@ namespace ProjetoEntrevista.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioPfController : ControllerBase
+    public class UsuarioPjController : ControllerBase
     {
 
-        UsuarioPfRepository UsuarioPfRepository = new UsuarioPfRepository();
+        UsuarioPJRepository UsuarioPJRepository = new UsuarioPJRepository();
 
         [HttpGet]
         public IActionResult Listar()
         {
-            return Ok(UsuarioPfRepository.Listar());
+            return Ok(UsuarioPJRepository.Listar());
         }
 
-        [HttpGet("{cpf}")]
-        public IActionResult BuscarPorId(int cpf)
+        [HttpGet("{cnpj}")]
+        public IActionResult BuscarPorId(int cnpj)
         {
-            UsuarioPFDomains UsuarioPFDomains = UsuarioPfRepository.BuscarPorCpf(cpf);
-            if (UsuarioPFDomains == null)
+            UsuarioPJDomains UsuarioPJDomains = UsuarioPJRepository.BuscarPorCnpj(cnpj);
+            if (UsuarioPJDomains == null)
                 return NotFound();
-            return Ok(UsuarioPFDomains);
+            return Ok(UsuarioPJDomains);
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(UsuarioPFDomains UsuarioPFDomains)
+        public IActionResult Cadastrar(UsuarioPJDomains UsuarioPFDomains)
         {
-            UsuarioPfRepository.Cadastrar(UsuarioPFDomains);
+            UsuarioPJRepository.Cadastrar(UsuarioPFDomains);
             return Ok();
         }
 
-        [HttpPut("{cpf}")]
-        public IActionResult Atualizar(int cpf, UsuarioPFDomains UsuarioPF)
+        [HttpPut("{cnpj}")]
+        public IActionResult Atualizar(int cnpj, UsuarioPJDomains UsuarioPJ)
         {
-            UsuarioPF.NumeroCpf = cpf;
-            UsuarioPfRepository.Alterar(UsuarioPF);
+            UsuarioPJ.NumeroCnpj = cnpj;
+            UsuarioPJRepository.Alterar(UsuarioPJ);
             return Ok();
         }
 
-        [HttpDelete("{cpf}")]
-        public IActionResult Deletar(int cpf)
+        [HttpDelete("{cnpj}")]
+        public IActionResult Deletar(int cnpj)
         {
-            UsuarioPfRepository.Deletar(cpf);
+            UsuarioPJRepository.Deletar(cnpj);
             return Ok();
         }
 
@@ -58,12 +58,12 @@ namespace ProjetoEntrevista.Controllers
         {
             try
             {
-                List<UsuarioPFDomains> UsuariosPF = UsuarioPfRepository.BuscarPorNome(nome);
+                List<UsuarioPJDomains> UsuariosPJ = UsuarioPJRepository.BuscarPorNome(nome);
                 // caso nenhum funcionario seja encontrado com aquele nome, retorno sem conteudo
-                if (UsuariosPF.Count == 0)
+                if (UsuariosPJ.Count == 0)
                     return NoContent();
                 // caso contrario, apresento a lista de funcionarios com determinado nome
-                return Ok(UsuariosPF);
+                return Ok(UsuariosPJ);
             }
             catch (Exception ex)
             {

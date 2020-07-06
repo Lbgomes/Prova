@@ -10,7 +10,7 @@ namespace ProjetoEntrevista.Repositories
     public class UsuarioPfRepository
     {
 
-        private string StringConexao = "Data Source=desktop-cqtiv89\\sqlexpress.Projeto.dbo; initial catalog=Projeto;Integrated Security=true";
+        private string StringConexao = "Data Source=DESKTOP-CQTIV89\\SQLEXPRESS; initial catalog=Projeto;Integrated Security=true";
 
         // declaracao do metodo que preciso criar
         public List<UsuarioPFDomains> Listar()

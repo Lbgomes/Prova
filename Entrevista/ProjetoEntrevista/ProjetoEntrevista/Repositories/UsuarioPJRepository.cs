@@ -9,7 +9,7 @@ namespace ProjetoEntrevista.Repositories
 {
     public class UsuarioPJRepository
     {
-        private string StringConexao = "Data Source=DESKTOP-CQTIV89\\SQLEXPRESS; initial catalog=Prova;Integrated Security=true; user Id = sa;";
+        private string StringConexao = "Data Source=localhost; initial catalog=Prova;Integrated Security=true";
 
         // declaracao do metodo que preciso criar
         public List<UsuarioPJDomains> Listar()
