@@ -9,35 +9,35 @@ namespace Prova.Interfaces
     interface IusuarioPfRepository
     {
         /// <summary>
-        /// Lista todos os jogos
+        /// Lista todos os Usuarios
         /// </summary>
-        /// <returns>Uma lista de jogos</returns>
+        /// <returns>Uma lista de Usuarios</returns>
         List<UsuarioPF> Listar();
 
         /// <summary>
-        /// Busca um jogo através do ID
+        /// Busca um Usuario através do ID
         /// </summary>
-        /// <param name="cpf">ID do jogo que será buscado</param>
-        /// <returns>Um jogo buscado</returns>
+        /// <param name="cpf">ID do Usuario que será buscado</param>
+        /// <returns>Um Usuario buscado</returns>
         UsuarioPF BuscarPorCpf(int cpf);
 
         /// <summary>
-        /// Cadastra um novo jogo
+        /// Cadastra um novo Usuario
         /// </summary>
-        /// <param name="novoJogo">Objeto novoJogo que será cadastrado</param>
+        /// <param name="novoUsuarioPF">Objeto novoUsuarioPF que será cadastrado</param>
         void Cadastrar(UsuarioPF novoUsuarioPF);
 
         /// <summary>
-        /// Atualiza um jogo existente
+        /// Atualiza um Usuario existente
         /// </summary>
-        /// <param name="cpf">ID do jogo que será atualizado</param>
-        /// <param name="jogoAtualizado">Objeto jogoAtualizado que será alterado</param>
+        /// <param name="cpf">ID do Usuario que será atualizado</param>
+        /// <param name="UsuarioPFAtualizado">Objeto UsuarioPFAtualizado que será alterado</param>
         void Atualizar(int id, UsuarioPF UsuarioPFAtualizado);
 
         /// <summary>
-        /// Deleta um jogo existente
+        /// Deleta um Usuario existente
         /// </summary>
-        /// <param name="cpf">ID do jogo que será deletado</param>
+        /// <param name="cpf">ID do Usuario que será deletado</param>
         void Deletar(int cpf);
 
     }

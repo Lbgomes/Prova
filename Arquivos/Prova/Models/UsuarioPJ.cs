@@ -7,8 +7,7 @@ namespace Prova.Models
 {
     public class UsuarioPJ
     {
-        public int IdUsuarioPj { get; set; }
-
+       public int IdUsuarioPj { get; set; }
        public string NomeUsuario { get; set; }
        public int IdTipo { get; set; }
        public int NumeroCnpj { get; set; }

@@ -14,7 +14,7 @@ namespace Prova.Repository
         /// String de conexão com o banco de dados que recebe os parâmetros
         /// </summary>
         //private string stringConexao = "Data Source=DESKTOP-NJ6LHN1\\SQLDEVELOPER; initial catalog=InLock_Games; integrated security=true;";
-        private string stringConexao = "Data Source=LAB08DESK2301\\SQLEXPRESS; initial catalog=SQLQuery1; user Id=sa; pwd=sa@132";
+        private string stringConexao = "Data Source=LAB08DESK2301\\SQLEXPRESS; initial catalog=Prova; user Id=sa; pwd=sa@132";
 
         /// <summary>
         /// Atualiza um UsuarioPF existente

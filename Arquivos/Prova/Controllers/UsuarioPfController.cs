@@ -16,7 +16,7 @@ namespace Prova.Controllers
     public class UsuarioPfController : ControllerBase
     {
         /// <summary>
-        /// Cria um objeto _jogoRepository que irá receber todos os métodos definidos na interface
+        /// Cria um objeto _UsuarioRepository que irá receber todos os métodos definidos na interface
         /// </summary>
         private IusuarioPfRepository _usuarioPfRepository { get; set; }
 
@@ -29,10 +29,10 @@ namespace Prova.Controllers
         }
 
         /// <summary>
-        /// Lista todos os jogos
+        /// Lista todos os Usuarios
         /// </summary>
-        /// <returns>Uma lista de jogos e um status code 200 - Ok</returns>
-        /// dominio/api/Jogos
+        /// <returns>Uma lista de Usuarios e um status code 200 - Ok</returns>
+        /// dominio/api/Usuarios
         [HttpGet]
         public IActionResult Get()
         {
@@ -42,11 +42,11 @@ namespace Prova.Controllers
         }
 
         /// <summary>
-        /// Cadastra um novo jogo
+        /// Cadastra um novo Usuario
         /// </summary>
-        /// <param name="novoUsuarioPF">Objeto novoJogo que será cadastrado</param>
+        /// <param name="novoUsuarioPF">Objeto novoUsuario que será cadastrado</param>
         /// <returns>Os dados que foram enviados para cadastro e um status code 201 - Created</returns>
-        /// dominio/api/Jogos
+        /// dominio/api/Usuarios
         [HttpPost]
         public IActionResult Post(UsuarioPF novoUsuarioPF)
         {
@@ -54,23 +54,23 @@ namespace Prova.Controllers
             _usuarioPfRepository.Cadastrar(novoUsuarioPF);
 
             // Retorna o status code 201 - Created com a URI e o objeto cadastrado
-            return Created("http://localhost:5000/api/Funcionarios", novoUsuarioPF);
+            return Created("http://localhost:5000/api/UsuarioPF", novoUsuarioPF);
         }
 
         /// <summary>
-        /// Busca um jogo através do seu ID
+        /// Busca um Usuario através do seu ID
         /// </summary>
-        /// <param name="cpf">ID do jogo que será buscado</param>
-        /// <returns>Um jogo buscado ou NotFound caso nenhum seja encontrado</returns>
-        /// dominio/api/Jogos/1
+        /// <param name="cpf">ID do Usuario que será buscado</param>
+        /// <returns>Um Usuario buscado ou NotFound caso nenhum seja encontrado</returns>
+        /// dominio/api/Usuarios/1
 
         [HttpGet("{NumeroCpf}")]
         public IActionResult GetByCpf(int cpf)
         {
-            // Cria um objeto jogoBuscado que irá receber o jogo buscado no banco de dados
+            // Cria um objeto UsuarioBuscado que irá receber o Usuario buscado no banco de dados
             UsuarioPF usuarioPFBuscado = _usuarioPfRepository.BuscarPorCpf(cpf);
 
-            // Verifica se algum jogo foi encontrado
+            // Verifica se algum Usuario foi encontrado
             if (usuarioPFBuscado != null)
             {
                 // Caso seja, retorna os dados buscados e um status code 200 - Ok
@@ -82,19 +82,19 @@ namespace Prova.Controllers
         }
 
         /// <summary>
-        /// Atualiza um jogo existente
+        /// Atualiza um Usuario existente
         /// </summary>
-        /// <param name="cpf">ID do jogo que será atualizado</param>
-        /// <param name="UsuarioPFAtualizado">Objeto jogoAtualizado que será alterado</param>
+        /// <param name="cpf">ID do Usuario que será atualizado</param>
+        /// <param name="UsuarioPFAtualizado">Objeto UsuarioAtualizado que será alterado</param>
         /// <returns>Retorna um status code</returns>
-        /// dominio/api/Jogos/1
+        /// dominio/api/Usuarios/1
         [HttpPut("{NumeroCpf}")]
         public IActionResult Put(int cpf, UsuarioPF UsuarioPFAtualizado)
         {
-            // Cria um objeto jogoBuscado que irá receber o jogo buscado no banco de dados
+            // Cria um objeto UsuarioBuscado que irá receber o Usuario buscado no banco de dados
             UsuarioPF UsuarioPFBuscado = _usuarioPfRepository.BuscarPorCpf(cpf);
 
-            // Verifica se algum jogo foi encontrado
+            // Verifica se algum Usuario foi encontrado
             if (UsuarioPFBuscado != null)
             {
                 // Tenta atualizar o registro
@@ -128,18 +128,18 @@ namespace Prova.Controllers
         }
 
         /// <summary>
-        /// Deleta um jogo
+        /// Deleta um Usuario
         /// </summary>
-        /// <param name="cpf">ID do jogo que será deletado</param>
+        /// <param name="cpf">ID do Usuario que será deletado</param>
         /// <returns>Um status code com uma mensagem de sucesso ou erro</returns>
-        /// dominio/api/Jogos/1
+        /// dominio/api/Usuarios/1
         [HttpDelete("{NumeroCpf}")]
         public IActionResult Delete(int cpf)
         {
-            // Cria um objeto jogoBuscado que irá receber o jogo buscado no banco de dados
+            // Cria um objeto UsuarioBuscado que irá receber o Usuario buscado no banco de dados
             UsuarioPF usuarioPFBuscado = _usuarioPfRepository.BuscarPorCpf(cpf);
 
-            // Verifica se o jogo foi encontrado
+            // Verifica se o Usuario foi encontrado
             if (usuarioPFBuscado != null)
             {
                 // Caso seja, faz a chamada para o método .Deletar()

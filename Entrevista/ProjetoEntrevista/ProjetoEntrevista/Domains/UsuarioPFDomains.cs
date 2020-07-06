@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prova.Models
+namespace ProjetoEntrevista.Domains
 {
-    public class UsuarioPF
+    public class UsuarioPFDomains
     {
         public int IdUsuarioPf { get; set; }
         public string NomeUsuario { get; set; }
